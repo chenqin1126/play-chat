@@ -10,7 +10,7 @@ import play.api.mvc._
 class Application @Inject()(db: Database) extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready. t2est")("title"))
+    Ok(views.html.index("message")("title"))
   }
 
 }
