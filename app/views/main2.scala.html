@@ -1,0 +1,547 @@
+@(title: String)(message: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jodd | Documentation</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Jodd is set of Java micro frameworks, tools and utilities, under 1.5 MB.">
+        <meta name="author" content="Jodd">
+        <meta name="ROBOTS" content="ALL" />
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link href="http://fonts.googleapis.com/css?family=Fjalla+One|Lato:300|Open+Sans+Condensed:300|Source+Sans+Pro:700,400|Inconsolata:300" rel="stylesheet" type="text/css">
+        @*<link href="./css/font-awesome.css" media="screen, projection" rel="stylesheet" type="text/css" />*@
+        @*<link href="./css/style.css" media="screen, projection" rel="stylesheet" type="text/css" />*@
+        @*<link href="./css/heart.css" media="screen, projection" rel="stylesheet" type="text/css" />*@
+
+        <link href="@routes.Assets.at("stylesheets/font-awesome.css")" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link href="@routes.Assets.at("stylesheets/style.css")" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link href="@routes.Assets.at("stylesheets/heart.css")" media="screen, projection" rel="stylesheet" type="text/css" />
+
+            <!--[if IE]>
+		<link href="/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+	<![endif]-->
+        @*<script src="./js/jquery-2.1.3.min.js"></script>*@
+        @*<script src="./js/list.min.js"></script>*@
+
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.3.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/list.js")"></script>
+        <script>
+                $(function () {
+                    fix();
+                });
+                $(window).on('resize', fix);
+
+                function fix() {
+                    var $article = $('#content article');
+                    var $aside = $('#content aside');
+
+                    if ($article) {
+                        if ($aside.css('position') !== 'static') {
+                            var h1 = $article.height();
+                            var h2 = $aside.height();
+                            if (h2 > h1) {
+                                $article.height(h2);
+                            }
+                        }
+                    }
+                }
+        </script>
+    </head>
+    <body>
+        <div class="search-wrapper dosearch">
+            <div class="search-form" id="lista">
+                <input type="text" class="search-field fuzzy-search" placeholder="Search...">
+                <i class="fa fa-times-circle" id="search-cancel"></i>
+                <ul class="search-list"></ul>
+            </div>
+        </div>
+        <section id="intro">
+            <header>
+                <div id="top">
+                    <a href="http://jodd.org" id="logo"><img src="/jodd-pp-32.png" class="rotateInUpRight"/><span>
+                        Jodd</span></a>
+                    <nav>
+                        <a href="/download">Download</a>
+                        <a href="/doc">Documentation</a>
+                        <a href="/get-involved.html">Get Involved</a>
+                    </nav>
+                </div>
+            </header>
+
+
+            <div id="title-doc">&nbsp;</div>
+        </section>
+
+        <section id="content"><div class="inner">
+
+            <nav id="social">
+                <a href="http://github.com/oblac/jodd" class="fa fa-github"><span>Github</span></a>
+                <a href="http://stackoverflow.com/tags/jodd" class="fa fa-stack-overflow"><span>Stack Overflow</span></a>
+                <a href="/contact.html" class="fa fa-envelope-o"><span>Contact us</span></a>
+                <a href="https://twitter.com/joddorg" class="fa fa-twitter"><span>Twitter</span></a>
+                <a href="/love.html" class="fa fa-heart-o"><span>Users</span></a>
+                <a id="search" href="#"><i class="fa fa-search"><span>Search</span></i></a>
+            </nav>
+
+
+            <article>
+
+
+                <h1 id="documentation">Documentation</h1>
+
+                <h2 id="what-can-i-expect-from-jodd">What can I expect from Jodd?</h2>
+
+                <p>Take a deep breath and hold it:</p>
+
+                <blockquote>
+                    <p>Developer-friendly experience + Excellent performance +
+                        Small memory footprint and code-base; under 1.7 MB +
+                        Fast redeployments, matter of seconds + Web framework +
+                        Lightweight DI container + Unique proxy creator +
+                        Thin database layers + Template SQL + Transactions manager +
+                        JSON (de)serialization +
+                        Validation framework + HTML parser +
+                        Decoration framework + Fastest bean library +
+                        Type conversion +
+                        Elegant and precise time class + Properties replacement +
+                        Tiny HTTP client + Many carefully selected utilities… and more!</p>
+                </blockquote>
+
+                <p>Now you can breath out :)</p>
+
+                <h2 id="about">About</h2>
+
+                <p><a href="/about">About Jodd</a> - an effective one-page you will love :)</p>
+
+                <p><a href="http://oblac.github.io/jodd">Jodd overview in 5 minutes</a> - <em class="jodd">Jodd</em>
+                    frameworks overview in 5 minutes.</p>
+
+                <p><a href="http://joddframework.org">Jodd micro-frameworks in 30 minutes</a>
+                    - example of using <em class="jodd">Jodd</em> micro-frameworks.</p>
+
+                <p><a href="modules.html">Jodd modules</a> - learn how <em class="jodd">Jodd</em>
+                    is organized into the modules.</p>
+
+                <h2 id="jodd-utilities">Jodd utilities</h2>
+
+                <p><a href="beanutil.html">BeanUtil</a> - fastest bean manipulation library around.</p>
+
+                <p>Cache - set of common cache implementation.</p>
+
+                <p><a href="printf.html">Printf</a> - formatted value printing, as in C.</p>
+
+                <p><a href="jdatetime.html">JDateTime</a>
+                    - elegant usage and astronomical precision in one time-manipulation class.</p>
+
+                <p><a href="typeconverter.html">Type Converter</a> - converting types.</p>
+
+                <p><a href="stringutil.html">StringUtil</a> - more then 100 of additional String utilities.</p>
+
+                <p><a href="stringtemplateparser.html">StringTemplateParser</a> - simple string template parser.</p>
+
+                <p><a href="findfile.html">Finding, scanning, walking files</a> - few easy ways.</p>
+
+                <p><a href="class-finder.html">Class finder</a> - find classes on classpath.</p>
+
+                <p><a href="wildcard.html">Wildcard</a> - using wildcards.</p>
+
+                <p><a href="servlets.html">Servlets</a> - various servlets-related tools.</p>
+
+                <p><a href="taglibrary.html">Jodd tag library</a> - new power to the JSP.</p>
+
+                <p><a href="formtag.html">Form tag</a> - automagically populates forms.</p>
+
+                <p><a href="class-loading-in-jodd.html">Class loading in Jodd</a> - great ways for loading classes.</p>
+
+                <p><a href="fast-buffers.html">Fast buffers</a> - really fast appendable storage.</p>
+
+                <p><a href="inc-exc-rules.html">Include-Exclude rules</a> - small rule engine for filtering resources.</p>
+
+                <p><a href="dir-watcher.html">Dir Watcher</a> - watching directory for file changes.</p>
+
+                <h2 id="jodd-tools">Jodd tools</h2>
+
+                <p><a href="email.html">Email</a> - sending and receiving emails.</p>
+
+                <p><a href="props.html">Props</a> - enhanced <code>Properties</code> replacement.</p>
+
+                <p><a href="http.html">HTTP</a> - tiny, raw HTTP client.</p>
+
+                <p><a href="methref.html">Methref</a> - strongly-typed method name references.</p>
+
+                <p><a href="swingspy.html">SwingSpy</a> - inspection of swing component hierarchy.</p>
+
+                <h2 id="jodd-micro-frameworks">Jodd micro-frameworks</h2>
+
+                <h3 id="madvoc">Madvoc</h3>
+
+                <p>Elegant web MVC framework that uses CoC in a pragmatic way to simplify web application development.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/madvoc/index.html">Madvoc</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/actions.html">Actions</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/actions-more.html">Actions (cont.)</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/results.html">Results</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/results-more.html">Results (cont.)</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/interceptors.html">Interceptors</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/filters.html">Filters</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/injection.html">Injection</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/rest.html">REST urls</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/setup.html">Setup</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/manual+registration.html">Manual registration</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/routing.html">Madvoc routing</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/integration.html">Integration</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/miscellaneous.html">Miscellaneous</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/embeded-madvoc.html">Embedded Madvoc</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/madvoc-aop-cglib.html">
+                        AOP aware Madvoc action requests</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/prepare-objects-before-update.html">
+                        Prepare objects before update</a></li>
+                    <li class="doc-item"><a href="/doc/madvoc/skip-madvoc-on-action-path.html">Skip action paths</a></li>
+                </ul>
+
+                <h3 id="petite">Petite</h3>
+
+                <p>Slick and lightweight DI container that supports sufficient most of features offered by other containers.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/petite/index.html">Petite</a></li>
+                    <li class="doc-item"><a href="/doc/petite/container.html">Container</a></li>
+                    <li class="doc-item"><a href="/doc/petite/more_registration.html">More registration</a></li>
+                    <li class="doc-item"><a href="/doc/petite/more_wiring.html">More wiring</a></li>
+                    <li class="doc-item"><a href="/doc/petite/beans-set-injection.html">Beans set injection</a></li>
+                    <li class="doc-item"><a href="/doc/petite/petite-provider.html">Petite Provider</a></li>
+                    <li class="doc-item"><a href="/doc/petite/setup.html">Setup</a></li>
+                    <li class="doc-item"><a href="/doc/petite/parameters.html">Parameters</a></li>
+                </ul>
+
+                <h3 id="proxetta">Proxetta</h3>
+
+                <p>The fastest proxy creator with unique approach for defying pointcuts and advices.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/proxetta/index.html">Proxetta</a></li>
+                    <li class="doc-item"><a href="/doc/proxetta/pointcuts.html">Pointcuts</a></li>
+                    <li class="doc-item"><a href="/doc/proxetta/advices.html">Advices</a></li>
+                    <li class="doc-item"><a href="/doc/proxetta/proxy.html">ProxyProxetta</a></li>
+                    <li class="doc-item"><a href="/doc/proxetta/wrapper.html">WrapperProxetta</a></li>
+                    <li class="doc-item"><a href="/doc/proxetta/invocation-replacement.html">
+                        Invocation replacement</a></li>
+                </ul>
+
+                <h3 id="dboom">DbOom</h3>
+
+                <p>Efficient and thin layers that significantly simplifies writing of database code.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/db/index.html">Db &amp; DbOom</a></li>
+                    <li class="doc-item"><a href="/doc/db/dbquery.html">DbQuery</a></li>
+                    <li class="doc-item"><a href="/doc/db/dbsession.html">DbSession</a></li>
+                    <li class="doc-item"><a href="/doc/db/dboomquery.html">DbOomQuery</a></li>
+                    <li class="doc-item"><a href="/doc/db/mapping.html">Mapping</a></li>
+                    <li class="doc-item"><a href="/doc/db/dboommanager.html">DbOomManager</a></li>
+                    <li class="doc-item"><a href="/doc/db/sqlgenerator.html">Sql Generator</a></li>
+                    <li class="doc-item"><a href="/doc/db/template-sql.html">Template SQL</a></li>
+                    <li class="doc-item"><a href="/doc/db/relations-and-hints.html">Relations &amp; Hints</a></li>
+                    <li class="doc-item"><a href="/doc/db/configuration.html">Db configuration</a></li>
+                    <li class="doc-item"><a href="/doc/db/inject-values-using-hints.html">
+                        Inject values into entity using hints</a></li>
+                    <li class="doc-item"><a href="/doc/db/db-mapping-to-bean.html">DbOom: Mapping to a bean</a></li>
+                    <li class="doc-item"><a href="/doc/db/db-relations-view.html">DB Relations</a></li>
+                </ul>
+
+                <h3 id="json">Json</h3>
+
+                <p>Poweful JSON serializer and parser.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/json/index.html">Jodd JSON</a></li>
+                    <li class="doc-item"><a href="/doc/json/json-serializer.html">Json Serializer</a></li>
+                    <li class="doc-item"><a href="/doc/json/json-parser.html">Json Parser</a></li>
+                    <li class="doc-item"><a href="/doc/json/json-misc.html">Miscellaneous JSON</a></li>
+                </ul>
+
+                <h3 id="jtx">JTX</h3>
+
+                <p>Enjoyable transaction manager.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/jtx/index.html">JTX</a></li>
+                    <li class="doc-item"><a href="/doc/jtx/concepts.html">JTX concepts</a></li>
+                    <li class="doc-item"><a href="/doc/jtx/jtx-example.html">JTX example</a></li>
+                    <li class="doc-item"><a href="/doc/jtx/db-and-annotation.html">Db and annotations</a></li>
+                </ul>
+
+                <h3 id="paramo">Paramo</h3>
+
+                <p>Extracts method and constructor parameter names.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/paramo/index.html">Paramo</a></li>
+                </ul>
+
+                <h3 id="vtor">VTor</h3>
+
+                <p>Validation framework.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/vtor/index.html">VTor</a></li>
+                </ul>
+
+                <h3 id="lagarto">Lagarto</h3>
+
+                <p>HTML parser.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/lagarto/index.html">Lagarto</a></li>
+                    <li class="doc-item"><a href="/doc/lagarto/lagarto-parser.html">Lagarto Parser</a></li>
+                    <li class="doc-item"><a href="/doc/lagarto/dom-builder.html">DOM Builder</a></li>
+                    <li class="doc-item"><a href="/doc/lagarto/lagarto-properties.html">Lagarto properties</a></li>
+                    <li class="doc-item"><a href="/doc/lagarto/strip-html.html">StripHtml</a></li>
+                </ul>
+
+                <h3 id="htmlstapler">HtmlStapler</h3>
+
+                <p>Transparent HTML resource bundles.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/htmlstapler/index.html">HtmlStapler</a></li>
+                    <li class="doc-item"><a href="/doc/htmlstapler/how-htmlstapler-works.html">
+                        How HtmlStapler works?</a></li>
+                    <li class="doc-item"><a href="/doc/htmlstapler/setup.html">Setup</a></li>
+                    <li class="doc-item"><a href="/doc/htmlstapler/ignoring-resources.html">Ignoring resources</a></li>
+                    <li class="doc-item"><a href="/doc/htmlstapler/enabling-gzip.html">Enabling GZip</a></li>
+                </ul>
+
+                <h3 id="decora">Decora</h3>
+
+                <p>Web decorator framework.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/decora/index.html">Decora</a></li>
+                </ul>
+
+                <h3 id="csselly">CSSelly</h3>
+
+                <p>CSS3 selectors parser.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/csselly/index.html">CSSelly</a></li>
+                </ul>
+
+                <h3 id="jerry">Jerry</h3>
+
+                <p>jQuery in Java.</p>
+
+                <ul class="doc-all">
+                    <li class="doc-item"><a href="/doc/jerry/index.html">Jerry</a></li>
+                    <li class="doc-item"><a href="/doc/jerry/jerry-examples.html">Jerry Examples</a></li>
+                    <li class="doc-item"><a href="/doc/jerry/facebook-bot.html">Build Facebook bot in 2 easy hours</a></li>
+                    <li class="doc-item"><a href="/doc/jerry/facebook.html">Facebook browser with Jerry &amp; Http</a></li>
+                </ul>
+
+                <h2 id="jodd-labs">Jodd Labs</h2>
+
+                <p><a href="joy">Jodd Joy</a>
+                    - Start coding your web applications right away, using best Jodd practices integrated into thin application layer.</p>
+
+                <h2 id="misc">Misc</h2>
+
+                <h3 id="integration">Integration</h3>
+
+                <p><a href="osgi.html">Jodd &amp; OSGi</a> - Learn how to use <em class="jodd">Jodd</em>
+                    modules as OSGi bundles.</p>
+
+                <p><a href="jodd-jboss7-module.html">Jodd as JBoss AS 7 module</a>
+                    - make JBoss module out of <em class="jodd">Jodd</em> jars.</p>
+
+                <h3 id="examples">Examples</h3>
+
+                <p><a href="/uphea/index.html">Uphea</a> - real-world web application example built on <em class="jodd">
+                    Jodd</em> framework.</p>
+
+                <p><a href="quickstart/index.html">Quickstart</a> - start experiencing <em class="jodd">Jodd</em>
+                    right away.</p>
+
+                <p><a href="example/index.html">Build web applications with Jodd</a>
+                    - tutorial that gives step-by-step instructions how to build web
+                    application using <em class="jodd">Jodd</em>. Along it also provides some best-practices
+                    using <em class="jodd">Jodd</em> frameworks.</p>
+
+                <h3 id="tips-tricks--best-practice">Tips, Tricks &amp; Best practice</h3>
+
+                <p><a href="logging-jodd.html">Logging</a>, make <em class="jodd">Jodd</em>
+                    logs to your logging framework.</p>
+
+                <p><a href="add-classpath-in-runtime.html">Add to classpath</a> with <code>ClassLoaderUtil</code>
+                    in runtime.</p>
+
+                <p>Learn how to <a href="remove-session-id.html">remove session id</a> from URL for more security.</p>
+
+                <p><em class="jodd">Jodd</em> can be used on <a href="android.html">Android</a>, too!</p>
+
+                <h3 id="performance">Performance</h3>
+
+                <p><a href="performance.html">Benchmarks</a> - overview of all available performance tests.</p>
+
+                <h3 id="reports">Reports</h3>
+
+                <p><a href="/api/index.html">Jodd API</a> javadoc.</p>
+
+                <p><a href="/test/index.html">Test results</a>.</p>
+
+                <p><a href="/test/coverage-report/index.html">Coverage reports</a>.</p>
+
+                <h2 id="about-documentation">About Documentation</h2>
+
+                <p>We put big effort to produce quality documentation.
+                    <em class="jodd">Jodd</em> documentation covers core concepts of <em class="jodd">Jodd</em>
+                    micro frameworks
+                    in depth, but also gives overview and examples for many tools.</p>
+
+                <p class="attn">Although we are trying hard to keep documentation up to date with the
+                    code base, there may be differences between how code works
+                    and whats described.</p>
+
+                <p>Documentation is written in <strong>kramdown</strong> (excellent markdown extension).
+                    You can find and even read our documentation on
+                    <a href="https://github.com/oblac/jodd-site">GitHub</a>, too. Feel free to contribute!</p>
+
+                <p>Need more documentation on certain topics? Don't hesitate to ask for it!</p>
+
+                <p>Thank you!</p>
+
+
+            </article>
+            <aside>
+                <h2>Content</h2>
+                <ul class="toc-1"><li class="toc-h2"><a href="#what-can-i-expect-from-jodd">
+                    What can I expect from Jodd?</a></li><li class="toc-h2"><a href="#about">
+                    About</a></li><li class="toc-h2"><a href="#jodd-utilities">
+                    Jodd utilities</a></li><li class="toc-h2"><a href="#jodd-tools">
+                    Jodd tools</a></li><li class="toc-h2"><a href="#jodd-micro-frameworks">
+                    Jodd micro-frameworks</a></li><li class="toc-h3"><a href="#madvoc">
+                    Madvoc</a></li><li class="toc-h3"><a href="#petite">
+                    Petite</a></li><li class="toc-h3"><a href="#proxetta">
+                    Proxetta</a></li><li class="toc-h3"><a href="#dboom">
+                    DbOom</a></li><li class="toc-h3"><a href="#json">Json</a></li><li class="toc-h3"><a href="#jtx">
+                    JTX</a></li><li class="toc-h3"><a href="#paramo">Paramo</a></li><li class="toc-h3"><a href="#vtor">
+                    VTor</a></li><li class="toc-h3"><a href="#lagarto">
+                    Lagarto</a></li><li class="toc-h3"><a href="#htmlstapler">
+                    HtmlStapler</a></li><li class="toc-h3"><a href="#decora">
+                    Decora</a></li><li class="toc-h3"><a href="#csselly">
+                    CSSelly</a></li><li class="toc-h3"><a href="#jerry">
+                    Jerry</a></li><li class="toc-h2"><a href="#jodd-labs">
+                    Jodd Labs</a></li><li class="toc-h2"><a href="#misc">
+                    Misc</a></li><li class="toc-h3"><a href="#integration">
+                    Integration</a></li><li class="toc-h3"><a href="#examples">
+                    Examples</a></li><li class="toc-h3"><a href="#tips-tricks--best-practice">
+                    Tips, Tricks &amp; Best practice</a></li><li class="toc-h3"><a href="#performance">
+                    Performance</a></li><li class="toc-h3"><a href="#reports">
+                    Reports</a></li><li class="toc-h2"><a href="#about-documentation">About Documentation</a></li></ul>
+
+                <h2>Documentation</h2>
+                <ul>
+                    <li><a href="/doc/index.html">Jodd in action</a></li>
+                    <li><a href="http://oblac.github.io/jodd/">Jodd in 5 minutes</a></li>
+                    <li><a href="http://joddframework.org">Jodd in 30 minutes</a></li>
+                </ul>
+
+
+                <h3>Jodd tools and utils</h3>
+                <ul>
+                    <li><a href="/doc/beanutil.html">BeanUtil &middot; the fastest bean tool</a></li>
+                    <li><a href="/doc/jdatetime.html">JDateTime &middot; accurate and elegant</a></li>
+                    <li><a href="/doc/props.html">Props &middot; super properties</a></li>
+                    <li><a href="/doc/email.html">Email &middot; convenient email handling</a></li>
+                    <li><a href="/doc/http.html">HTTP &middot; easy http client</a></li>
+                    <li><a href="/doc/index.html">and more...</a></li>
+                </ul>
+                <h3>Jodd micro-frameworks</h3>
+                <ul>
+                    <li><a href="/doc/madvoc/index.html">Madvoc &middot; slick MVC framework</a></li>
+                    <li><a href="/doc/petite/index.html">Petite &middot; pragmatic DI container</a></li>
+                    <li><a href="/doc/proxetta/index.html">Proxetta &middot; dynamic proxy</a></li>
+                    <li><a href="/doc/db/index.html">Db &amp; DbOom &middot; practical db access</a></li>
+                    <li><a href="/doc/json/index.html">Json &middot; cool (de)serialization</a></li>
+                    <li><a href="/doc/jtx/index.html">JTX &middot; enjoyable transactions</a></li>
+                    <li><a href="/doc/paramo/index.html">Paramo &middot; method params names</a></li>
+                    <li><a href="/doc/vtor/index.html">VTor &middot; validation with style</a></li>
+                    <li><a href="/doc/lagarto/index.html">Lagarto &middot; versatile html parser</a></li>
+                    <li><a href="/doc/decora/index.html">Decora &middot; web page decorators</a></li>
+                    <li><a href="/doc/jerry/index.html">Jerry &middot; jQuery in Java</a></li>
+
+                </ul>
+                <h3>Examples</h3>
+                <ul>
+                    <li><a href="/doc/quickstart/index.html">Quickstart &raquo; instant run</a></li>
+                    <li><a href="/doc/example/index.html">Web app example &raquo; step-by-step</a></li>
+                    <li><a href="/uphea/index.html">Uphea &raquo; real world app</a></li>
+                </ul>
+                <h3>Reports</h3>
+                <ul>
+                    <li><a href="http://oblac.github.io/jodd-site/javadoc/">Javadoc API</a></li>
+                    <li><a href="http://oblac.github.io/jodd-site/tests/index.html">Test results</a></li>
+                    <li><a href="http://oblac.github.io/jodd-site/coverage/index.html">Coverage report</a></li>
+                </ul>
+
+                <div id="ohloh">
+                    <script type="text/javascript" src="http://www.ohloh.net/p/90331/widgets/project_thin_badge.js"></script>
+                </div>
+
+            </aside>
+        </div></section>
+
+        <footer>
+            <div id="support">
+                <div class="inner">
+                    <div class="text-center">
+                        <a href="/download">Download</a>
+                        <a href="/code.html">Code</a>
+                        <a href="/doc">Documentation</a>
+                    </div>
+                </div>
+            </div>
+            <div id="overview">
+                <div class="inner">
+                    © 2016 Igor Spasić and the Jodd Team, with &nbsp;<span class="heartbeat"></span>.<br>
+                    <br>
+                    Jodd is free software, released under the terms of the BSD License.
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript">
+                var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+                try {
+                    var pageTracker = _gat._getTracker("UA-153514-4");
+                    pageTracker._trackPageview();
+                } catch (err) {
+                }</script>
+
+    </body>
+</html>
